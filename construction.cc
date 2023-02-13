@@ -48,7 +48,7 @@ void MyDetectorConstruction::DefineMaterials()
     Aerogel->AddMaterial(H2O, 37.4*perCent);
     Aerogel->AddElement(C, 0.1*perCent);
 
-    G4double energy[2] = {1.239841939*eV/0.2, 1.239841939*eV/0.9};
+    G4double energy[2] = {1.239841939*eV/0.9, 1.239841939*eV/0.2};
     G4double rindexAerogel[2] = {1.1, 1.1};
     G4double rindexWorld[2] = {1.0, 1.0};
     G4double rindexNaI[2] = {1.78, 1.78};
@@ -71,11 +71,11 @@ void MyDetectorConstruction::DefineMaterials()
 
     G4MaterialPropertiesTable *mptNaI = new G4MaterialPropertiesTable();
     mptNaI->AddProperty("RINDEX", energy, rindexNaI, 2);
-    mptNaI->AddProperty("FASTCOMPONENT", energy, fraction, 2);
+    mptNaI->AddProperty("SCINTILLATIONCOMPONENT1", energy, fraction, 2);
     mptNaI->AddConstProperty("SCINTILLATIONYIELD",38./keV);
     mptNaI->AddConstProperty("RESOLUTIONSCALE",1.0);
-    mptNaI->AddConstProperty("FASTTIMECONSTANT", 250.*ns);
-    mptNaI->AddConstProperty("YIELDRATIO",1.);
+    mptNaI->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 250.*ns);
+    mptNaI->AddConstProperty("SCINTILLATIONYIELD1",1.);
     NaI->SetMaterialPropertiesTable(mptNaI);
 
     worldMat->SetMaterialPropertiesTable(mptWorld);

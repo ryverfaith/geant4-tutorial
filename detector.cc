@@ -23,7 +23,7 @@ MySensitiveDetector::MySensitiveDetector(G4String name) : G4VSensitiveDetector(n
 
     datafile.close();
 
-    quEff->SetSpline(false);
+    //quEff->SetSpline(false);
 }
 
 MySensitiveDetector::~MySensitiveDetector()
